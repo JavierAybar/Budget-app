@@ -1,5 +1,4 @@
 class OperationsController < ApplicationController
-  before_action :set_operation, only: %i[ show edit update destroy ]
 
   # GET /operations or /operations.json
   def index
@@ -12,6 +11,7 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
+    @group = Group.find(params[:group_id])
     @operation = Operation.new
   end
 
@@ -21,11 +21,14 @@ class OperationsController < ApplicationController
 
   # POST /operations or /operations.json
   def create
+    @group = Group.find(params[:group_id])
     @operation = Operation.new(operation_params)
+    @operation.user_id = current_user.id
+    @group.operations << @operation
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to group_url(@group) }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }

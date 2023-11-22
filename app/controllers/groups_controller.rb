@@ -8,6 +8,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @group = Group.find(params[:id])
+    @operations = @group.operations.order(created_at: :desc)
+    @total_operations = @operations.sum(:amount)
   end
 
   # GET /groups/new
@@ -22,11 +25,12 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.user = current_user
+    
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
-        format.json { render :show, status: :created, location: @group }
+        format.html { redirect_to groups_url }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @group.errors, status: :unprocessable_entity }
@@ -65,6 +69,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :icon, :user_id)
+      params.require(:group).permit(:name, :icon)
     end
 end

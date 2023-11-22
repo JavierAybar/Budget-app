@@ -2,9 +2,17 @@
 
 <%= render @group %>
 
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
 
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <% @operations.each do |op| %>
+        <h4><%= op.name %></h4>
+        <h4><%= op.amount %></h4>
+    <% end %>  
+
+
+<div>
+  <%= link_to "Edit this category", edit_group_path(@group) %> |
+  <%= link_to "Add new operation", new_group_operation_path(@group, current_user) %> |
+
+  <%= link_to "Back to groups", groups_path %>
+  <%= button_to "Delete this category", @group, method: :delete %>
 </div>
