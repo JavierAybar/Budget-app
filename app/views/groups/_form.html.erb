@@ -23,6 +23,6 @@
 
 
   <div>
-    <%= form.submit "Create category" %>
+    <%= form.submit group.new_record? ? "Create category" : "Update category" %>
   </div>
 <% end %>

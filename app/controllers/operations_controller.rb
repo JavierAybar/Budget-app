@@ -1,5 +1,6 @@
 class OperationsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   # GET /operations or /operations.json
   def index
     @operations = Operation.all

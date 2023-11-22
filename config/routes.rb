@@ -2,11 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#splash'
 
-  
-  authenticated :user do
-    root 'groups#index', as: :authenticated_root
-  end
-  
+  resources :user
+
   resources :groups do 
     resources :operations
   end  
