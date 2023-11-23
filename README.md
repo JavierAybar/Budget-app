@@ -9,6 +9,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+- [Walkthrough video 🎥](##walkthrough-video)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -122,6 +123,12 @@ You can deploy this project using GitPages:
 - Click Save
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Walkthrough video 🎥<a name="#walkthrough-video"></a>
+
+[Link](https://www.loom.com/share/fa3a379f05664d22975321f84fae4c53?sid=cb62457a-c976-48d7-b31e-ad4dbde345d9)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
