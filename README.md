@@ -126,7 +126,7 @@ You can deploy this project using GitPages:
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://recipe-app-t2ko.onrender.com)
+- [Live Demo Link](https://budget-app-e6x9.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
