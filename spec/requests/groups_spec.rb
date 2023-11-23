@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'GroupsController', type: :request do
   describe 'Get/ #index' do
-  before(:all) { @group = FactoryBot.create(:group) }
-  before(:each) { sign_in @group.user }
+    before(:all) { @group = FactoryBot.create(:group) }
+    before(:each) { sign_in @group.user }
 
     it 'response status was correct' do
       get groups_path
@@ -19,6 +19,5 @@ RSpec.describe 'GroupsController', type: :request do
       get groups_path
       expect(response.body).to include(@group.name)
     end
-
   end
 end
