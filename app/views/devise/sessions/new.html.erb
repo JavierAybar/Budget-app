@@ -1,27 +1,28 @@
-<h2>Log in</h2>
-
+<section class="flex flex-col mb-auto w-full">
+<nav class="flex items-center justify-between bg-customBlue rounded-t-lg h-12 p-3 text-white">
+   <a href="<%= root_path %>">
+    <i class="text-lg fa-solid fa-arrow-left"></i>
+  </a>
+  <h2 class="text-xl font-semibold">Log in</h2>
+  <a href="sign_in">
+    <h4>Log in</h4>
+  </a>
+</nav>
+<div class = "px-2 py-6">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email", class: "text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black  dark:focus:ring-blue-500 dark:focus:border-blue-500",placeholder: "email@gmail.com" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500",placeholder: "Password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="pt-6">
+    <%= f.submit "Log in", class:"text-white bg-customBlue focus:ring-4 focus:outline-none w-full font-medium rounded-sm text-lg px-32 py-2 text-center" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+</section>

@@ -1,18 +1,54 @@
-<p style="color: green"><%= notice %></p>
+<section class="flex flex-col mb-auto w-full content-center  justify-center ">
+  <nav class="flex items-center justify-between bg-customBlue rounded-t-lg h-12 p-3 text-white">
+    <a href="<%= groups_path %>">
+      <i class="text-lg fa-solid fa-arrow-left"></i>
+    </a>
+    <h2 class="text-xl font-semibold">Details</h2>
+    <a>
+      <i class="text-lg fa-solid fa-magnifying-glass"></i>
+    </a>
+  </nav>
+   
+<div class="w-full h-[520px]  max-w-md p-6 bg-zinc-50 border-gray-200 rounded-lg shadow dark:bg-white">
+  <div class="flow-root">
+    <ul role="list" class="divide-y divide-gray-200 flex flex-col">
+      <a class="flex items-center bg-white border border-gray-200 rounded-sm shadow h-[80px]" href="<%= group_path(@group) %>">
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0">
+              <%= image_tag(@group.icon, alt: @group.name, class: "w-14 h-14 rounded-full ml-2") %>
+            </div>
+            <div class="flex-1 min-w-0 ms-4 mb-2">
+              <p class="text-xl font-semibold text-gray-900 truncate dark:text-black">
+                <%= @group.name %>
+              </p>
+            </div>
+            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-black">
+              Total: $ <%= @total_operations %>
+            </div>
+          </div>
+        </li>
+      </a>
+    </ul>
 
-<%= render @group %>
-
-
-  <% @operations.each do |op| %>
-        <h4><%= op.name %></h4>
-        <h4><%= op.amount %></h4>
-    <% end %>  
-
-
-<div>
-  <%= link_to "Edit this category", edit_group_path(@group) %> |
-  <%= link_to "Add new operation", new_group_operation_path(@group, current_user) %> |
-
-  <%= link_to "Back to categories", groups_path %>
-  <%= button_to "Delete this category", @group, method: :delete %>
+    <% @operations.each do |op| %>
+      <div class="flex items-center bg-white border border-gray-200 rounded-sm shadow h-[80px] gap-10">
+        <div class="p-2">
+          <h4 class="font-bold"><%= op.name %></h4>
+          <h4 class="font-semibold"><%= op.created_at %></h4>
+        </div>
+        <div>
+          <h4 class="font-semibold">Total: $<%= op.amount %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+</div>  
+<div class="flex flex-col gap-2 w-full px-2 mt-2">
+  <%= link_to "Edit this category", edit_group_path(@group), class:"text-white bg-customGreen focus:ring-4 focus:outline-none  font-medium rounded-sm text-sm  py-2.5 w-full border-2 text-center rounded-lg" %> 
+  <%= link_to "New operation", new_group_operation_path(@group, current_user), class:"text-white bg-customGreen focus:ring-4 focus:outline-none  font-medium rounded-sm text-sm py-2.5 w-full  border-2 text-center rounded-lg" %> 
+</div>
+</section>
+
