@@ -20,7 +20,9 @@ class GroupsController < ApplicationController
   end
 
   # GET /groups/1/edit
-  def edit; end
+  def edit
+
+  end
 
   # POST /groups or /groups.json
   def create
@@ -42,7 +44,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to group_url(@group), notice: 'Group was successfully updated.' }
+        format.html { redirect_to groups_url, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit, status: :unprocessable_entity }
