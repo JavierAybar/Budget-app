@@ -126,7 +126,7 @@ You can deploy this project using GitPages:
 
 ## Walkthrough video 🎥<a name="#walkthrough-video"></a>
 
-[Link](https://www.loom.com/share/fa3a379f05664d22975321f84fae4c53?sid=cb62457a-c976-48d7-b31e-ad4dbde345d9)
+[Link](https://www.loom.com/share/17a2bfad6e524eb786934fb3f47a3b01?sid=e8cd91f2-5083-4064-9333-f576f42e0dd9)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
