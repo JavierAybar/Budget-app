@@ -3,7 +3,9 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.all
+    @group = Group.find(params[:group_id])
+    @operations = @group.operations.order(created_at: :desc)
+    @total_operations = @operations.sum(:amount)
   end
 
   # GET /operations/1 or /operations/1.json
@@ -27,7 +29,7 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to group_url(@group) }
+        format.html { redirect_to group_operations_path(@group) }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
