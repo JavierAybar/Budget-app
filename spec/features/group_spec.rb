@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Create new group', type: :feature  do
+RSpec.describe 'Create new group', type: :feature do
   let(:user) do
     User.create(name: 'Javier', email: 'example@example.com', password: 'password')
   end
@@ -25,5 +25,4 @@ RSpec.describe 'Create new group', type: :feature  do
     expect(page).to have_content('Name can\'t be blank')
     expect(page).to have_content('Icon can\'t be blank')
   end
-
 end

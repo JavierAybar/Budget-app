@@ -19,9 +19,9 @@ RSpec.describe 'Create operation', type: :feature do
     expect(page).to have_content('Group 2')
   end
 
- it 're renders the page when trying to create new transaction without values' do
-   visit new_group_operation_path(group.id)
-   click_button 'Save'
-   expect(page).to have_content('New transaction')
- end
+  it 're renders the page when trying to create new transaction without values' do
+    visit new_group_operation_path(group.id)
+    click_button 'Save'
+    expect(page).to have_content('New transaction')
+  end
 end
