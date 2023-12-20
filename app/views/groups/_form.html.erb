@@ -1,0 +1,27 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class = "px-2 py-6">
+  <div>
+    <%= form.text_field :name, class: "text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black  dark:focus:ring-blue-500 dark:focus:border-blue-500",placeholder: "Name" %>
+  </div>
+
+  <div>
+    <%= form.text_field :icon, class: "text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black  dark:focus:ring-blue-500 dark:focus:border-blue-500",placeholder: "https://icon.example.com/"%>
+  </div>
+
+
+  <div>
+    <%= form.submit group.new_record? ? "Create category" : "Update category", class:"text-white bg-customBlue focus:ring-4 focus:outline-none w-full font-medium rounded-sm text-lg  py-2 text-center mt-6" %>
+  </div>
+</div>  
+<% end %>

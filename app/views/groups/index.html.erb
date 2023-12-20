@@ -1,0 +1,34 @@
+<section class="flex flex-col mb-auto w-full content-center  justify-center ">
+<nav class="flex items-center justify-between bg-customBlue rounded-t-lg h-12 p-3 text-white">
+    <i class="fa-solid fa-bars"></i>
+  <h2 class="text-xl font-semibold">Categories</h2>
+    <i class="text-lg fa-solid fa-magnifying-glass"></i>
+</nav>
+ 
+<div class="w-full h-[595px] max-w-md p-5 bg-zinc-50 border-gray-200 rounded-lg shadow dark:bg-white">
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 flex flex-col gap-3">
+ <% @groups.each do |group| %>
+ <a class="flex items-center bg-white border border-gray-200 rounded-sm shadow  h-[80px] " href="<%= group_operations_path(group) %>">
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <%= image_tag(group.icon, alt: group.name, class: "w-14 h-14 rounded-full ml-2") %>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-black">
+                      <%= group.name %>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-black">
+                        Total: $<%= group.operations.sum(:amount) %>
+                    </div>
+                </div>
+            </li>
+  </a>  
+    <% end %>
+        </ul>
+   </div>
+</div>
+<%= link_to "New category", new_group_path, class:"text-white bg-customGreen focus:ring-4 focus:outline-none  font-medium rounded-sm text-sm px-32 py-3.5 border-2 text-center rounded-b-lg" %>
+
+</section>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+<script src="https://kit.fontawesome.com/bfb0df995d.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p style="color: green"><%= notice %></p> 
+    <p class="alert"><%= alert %></p> 
+    <main class="h-full p-12 min-h-[650px] sm:min-h-[772px]">
+      <section class="grid  mx-auto max-w-[370px] place-items-center border-8 rounded-3xl shadow-2xl  border-sky-200  bg-zinc-50 h-[710px] relative">
+        <%= yield %>
+      </section>
+    </main>
+  </body>
+</html>
