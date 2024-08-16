@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>Budget-app</b></h3>
+  <h2><b>Budget-app</b></h2>
 
 </div>
 
